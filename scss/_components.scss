@@ -1,0 +1,30 @@
+.btn {
+  background-color: $button-color;
+}
+
+.product-card {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-primary {
+    background-color: $primary-color;
+    border: none;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.toast {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  animation: fadein 0.3s ease-in-out;
+  max-width: 300px;
+}

@@ -1,0 +1,19 @@
+body {
+  font-family: $font-stack;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
+header {
+  min-height: 200px; // oder wie du es magst
+}
+
+.hero {
+  
+  background: linear-gradient(120deg, $primary-color, white);
+  min-height: 200px;
+}
+
+.btn {
+  background-color: $button-color;
+}
