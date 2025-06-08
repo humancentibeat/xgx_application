@@ -1,0 +1,20 @@
+// Variables
+$primary-color: #6c63ff;
+$accent-color: #ffdd57;
+$font-stack: 'Segoe UI', sans-serif;
+
+// Imports (später erweiterbar)
+@import "base/reset";
+@import "components/cards"; // erstelle bei Bedarf
+
+// Global styles
+body {
+  font-family: $font-stack;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-gradient {
+  background: linear-gradient(120deg, $primary-color, $accent-color);
+}
