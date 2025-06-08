@@ -2,6 +2,19 @@
   background-color: $button-color;
 }
 
+.card-img-top {
+  max-height: 150px;
+  object-fit: contain;
+  padding: 1rem;
+  filter: grayscale(100%) brightness(0.6);
+  transition: filter 0.4s ease;
+
+  &:hover {
+    filter: brightness(1.2) saturate(1.5);
+  }
+}
+
+
 .product-card {
   transition: transform 0.3s ease;
   &:hover {
