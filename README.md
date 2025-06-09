@@ -78,7 +78,7 @@ flockifolio/
 ### 📄 [Motivationsschreiben](docs/motivationsschreiben.html)  
 Ein interaktives, spielerisch inszeniertes Bewerbungsschreiben – ganz im Stil des restlichen Portfolios.
 
-### 📎 [Lebenslauf (PDF)](docs/lebenslauf.pdf)  
+### 📎 [Lebenslauf](docs/lebenslauf.html)  
 Klassisch, klar, aber mit Persönlichkeit.
 
 ---
