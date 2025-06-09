@@ -1,6 +1,30 @@
 .btn {
-  background-color: $button-color;
+  background-color: $primary-color;
+  color: #fff;
 }
+
+.z-top {
+  z-index: 2000; // Damit's über Toasts etc. liegt
+}
+
+.info-widget {
+  @media (max-width: 576px) {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .btn {
+    border-radius: 999px;
+    padding-inline: 1rem;
+  }
+
+  .dropdown-menu {
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  }
+}
+
 
 .card-img-top {
   max-height: 150px;

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
   <header class="hero p-4 text-center">
     <h1>Willkommen bei FlockiFolio</h1>
     <p>UX mit Gefühl, Code mit Seele.</p>
@@ -37,6 +38,20 @@
     </div>
   </div>
 </section>
+
+<!-- Floating Info Button with Dropup Menu -->
+<div class="info-widget position-fixed bottom-0 end-0 p-4 z-top">
+  <div class="btn-group dropup">
+    <button type="button" class="btn btn-info dropdown-toggle shadow" data-bs-toggle="dropdown" aria-expanded="false">
+      ℹ️ Info
+    </button>
+    <ul class="dropdown-menu text-sm">
+      <li><a class="dropdown-item" href="docs/lebenslauf.html" target="_blank">📄 Lebenslauf</a></li>
+      <li><a class="dropdown-item" href="docs/motivationsschreiben.html">💬 Motivation</a></li>
+    </ul>
+  </div>
+</div>
+
 
 <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;"></div>
 <!-- Bootstrap Bundle mit JS (inkl. Popper) -->
