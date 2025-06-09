@@ -1,6 +1,30 @@
-console.log("FlockiShop booted. UX-Engines online.");
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartUI();
+  console.log("FlockiShop booted. UX-Engines online.");
+});
 
 let cartCount = 0;
+let cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(productName, price) {
+  if (!cart[productName]) {
+    cart[productName] = { quantity: 1, price };
+  } else {
+    cart[productName].quantity++;
+  }
+  saveCart();
+  updateCartUI();
+  showToast(productName, price);
+}
+function updateCartUI() {
+  const cartCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").textContent = cartCount;
+}
 
 function showToast(productName, price) {
   const toastContainer = document.getElementById('toast-container');
@@ -31,14 +55,9 @@ function showToast(productName, price) {
   setTimeout(() => toastEl.remove(), 4000);
 }
 
-// Beispiel-Hook
-document.querySelectorAll('.btn.btn-primary').forEach(button => {
-  button.addEventListener('click', () => {
-    cartCount++;
-    document.getElementById('cart-count').textContent = cartCount;
-    const productCard = button.closest('.product-card');
-    const productName = productCard.querySelector('.card-title').textContent;
-    const price = 12.90; // Placeholder: später aus Dataset oder Attribut
-    showToast(productName, price);
-  });
+$('#product-grid').on('click', 'button[data-id]', function () {
+  const productName = $(this).data('name');
+  const productPrice = parseFloat($(this).data('price'));
+
+  addToCart(productName, productPrice);
 });
