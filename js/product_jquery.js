@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $.getJSON('data/products.json', function (products) {
+  $.getJSON('./data/products.json', function (products) {
     products.forEach(product => {
       $('#product-grid').append(`
         <div class="col-md-4 mb-4">
