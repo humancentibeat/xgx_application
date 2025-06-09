@@ -5,15 +5,11 @@ body {
   padding: 0;
 }
 header {
-  min-height: 200px; // oder wie du es magst
+  min-height: 100px; // oder wie du es magst
 }
 
 .hero {
   
   background: linear-gradient(120deg, $primary-color, white);
-  min-height: 200px;
 }
 
-.btn {
-  background-color: $button-color;
-}

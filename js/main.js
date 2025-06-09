@@ -1,5 +1,7 @@
 console.log("FlockiShop booted. UX-Engines online.");
 
+let cartCount = 0;
+
 function showToast(productName, price) {
   const toastContainer = document.getElementById('toast-container');
 
@@ -29,10 +31,11 @@ function showToast(productName, price) {
   setTimeout(() => toastEl.remove(), 4000);
 }
 
-
 // Beispiel-Hook
 document.querySelectorAll('.btn.btn-primary').forEach(button => {
   button.addEventListener('click', () => {
+    cartCount++;
+    document.getElementById('cart-count').textContent = cartCount;
     const productCard = button.closest('.product-card');
     const productName = productCard.querySelector('.card-title').textContent;
     const price = 12.90; // Placeholder: später aus Dataset oder Attribut

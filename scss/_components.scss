@@ -7,6 +7,22 @@
   z-index: 2000; // Damit's über Toasts etc. liegt
 }
 
+#cart-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .badge {
+    font-size: 0.75rem;
+  }
+}
+
+
 .info-widget {
   @media (max-width: 576px) {
     bottom: 1rem;

@@ -9,10 +9,24 @@
 </head>
 <body>
 
-  <header class="hero p-4 text-center">
-    <h1>Willkommen bei FlockiFolio</h1>
-    <p>UX mit Gefühl, Code mit Seele.</p>
-  </header>
+<header class="navbar sticky-top bg-light shadow-sm px-3 hero d-flex justify-content-between align-items-center">
+  <div class="btn-group dropdown">
+    <button type="button" class="btn btn-info dropdown-toggle shadow" data-bs-toggle="dropdown" aria-expanded="false">
+      ℹ️ Info
+    </button>
+    <ul class="dropdown-menu text-sm">
+      <li><a class="dropdown-item" href="docs/lebenslauf.html" target="_blank">📄 Lebenslauf</a></li>
+      <li><a class="dropdown-item" href="docs/motivationsschreiben.html">💬 Motivation</a></li>
+    </ul>
+  </div>
+
+  <button id="cart-btn" class="btn position-relative">
+    🛒
+    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+  </button>
+</header>
+
+
 
   <section class="container my-5">
   <div class="row justify-content-center" id="product-grid">
@@ -39,18 +53,7 @@
   </div>
 </section>
 
-<!-- Floating Info Button with Dropup Menu -->
-<div class="info-widget position-fixed bottom-0 end-0 p-4 z-top">
-  <div class="btn-group dropup">
-    <button type="button" class="btn btn-info dropdown-toggle shadow" data-bs-toggle="dropdown" aria-expanded="false">
-      ℹ️ Info
-    </button>
-    <ul class="dropdown-menu text-sm">
-      <li><a class="dropdown-item" href="docs/lebenslauf.html" target="_blank">📄 Lebenslauf</a></li>
-      <li><a class="dropdown-item" href="docs/motivationsschreiben.html">💬 Motivation</a></li>
-    </ul>
-  </div>
-</div>
+
 
 
 <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;"></div>
