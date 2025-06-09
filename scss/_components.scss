@@ -39,7 +39,28 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
   }
+
+  
+}.tooltip {
+  background-color: #222 !important;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
+.tooltip .tooltip-inner {
+  background-color: #222 !important;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  border-radius: 8px;
+}
+
+.tooltip.bs-tooltip-auto[data-popper-placement^="bottom"] .tooltip-arrow::before {
+  border-bottom-color: #222 !important;
+}
+
 
 
 .card-img-top {

@@ -21,6 +21,11 @@ function addToCart(productName, price) {
   updateCartUI();
   showToast(productName, price);
 }
+
+
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.forEach(t => new bootstrap.Tooltip(t));
+
 function updateCartUI() {
   const cartCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
   document.getElementById("cart-count").textContent = cartCount;
@@ -61,3 +66,75 @@ $('#product-grid').on('click', 'button[data-id]', function () {
 
   addToCart(productName, productPrice);
 });
+
+function renderCartItems() {
+  const container = document.getElementById('cart-items-container');
+  container.innerHTML = '';
+
+  let total = 0;
+
+  for (const [name, item] of Object.entries(cart)) {
+    const itemTotal = item.quantity * item.price;
+    total += itemTotal;
+
+    const row = document.createElement('div');
+    row.className = "d-flex justify-content-between align-items-center border-bottom py-2";
+
+    row.innerHTML = `
+      <div><strong>${name}</strong><br><small>€ ${item.price.toFixed(2)} x ${item.quantity}</small></div>
+      <div>
+        <button class="btn btn-sm btn-outline-secondary me-1" data-action="decrease" data-name="${name}">–</button>
+        <span>${item.quantity}</span>
+        <button class="btn btn-sm btn-outline-secondary ms-1" data-action="increase" data-name="${name}">+</button>
+        <button class="btn btn-sm btn-outline-danger ms-3" data-action="remove" data-name="${name}">🗑️</button>
+      </div>
+    `;
+
+    container.appendChild(row);
+  }
+
+  document.getElementById('cart-total').textContent = total.toFixed(2);
+}
+
+// Buttons im Modal (dynamisch!)
+document.getElementById('cart-items-container').addEventListener('click', function(e) {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+
+  const name = btn.dataset.name;
+  const action = btn.dataset.action;
+
+  if (action === 'increase') {
+    cart[name].quantity++;
+  } else if (action === 'decrease') {
+    cart[name].quantity--;
+    if (cart[name].quantity <= 0) delete cart[name];
+  } else if (action === 'remove') {
+    delete cart[name];
+  }
+
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+});
+
+// Leeren
+document.getElementById('clear-cart').addEventListener('click', () => {
+  cart = {};
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+});
+
+// Checkout (Mock)
+document.getElementById('checkout').addEventListener('click', () => {
+  alert("Danke für deinen Einkauf! 🥳");
+  cart = {};
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+});
+// Modal beim öffnen aktualisieren
+document.getElementById('cartModal').addEventListener('show.bs.modal', renderCartItems);
+
+
